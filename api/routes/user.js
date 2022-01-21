@@ -28,7 +28,7 @@ const userController = require('../controllers/user');
  *           type: string
  *           description: user's password
  *       example:
- *         fullname: jean damas
+ *         fullName: jean damas
  *         email: jean@gmail.com
  *         password: test123
  */
@@ -57,6 +57,30 @@ const userController = require('../controllers/user');
  */
 
 router.post("/signup", userController.createUser);
+
+/**
+ * @swagger
+ * /user/signup:
+ *   post:
+ *     summary: login
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
+ *     responses:
+ *       200:
+ *         description: The user was successfully created
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       500:
+ *         description: Some server error
+ */
+
 
 router.post("/login", userController.userLogin);
 

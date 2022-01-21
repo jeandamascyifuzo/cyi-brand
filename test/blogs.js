@@ -8,11 +8,6 @@ const should = chai.should();
 chai.use(chaiHttp);
 chai.should();
 
-function timeOut(done){
-    this.timeout(500);
-    setTimeout(done, 300);
-    done();
-}
 
 //Blog API testing'
 //Get all the blogs
@@ -68,8 +63,9 @@ describe(' Get blog by Id', function () {
             res.body.should.be.a('object');
             res.body.should.have.property('id');
             res.body.should.have.property('title');
+            res.body.should.have.property('subtitle');
             res.body.should.have.property('content');
-            res.body.should.have.property('blogImage');
+            res.body.should.have.property('author');
             res.body.should.have.property('id').eq("61dff76b8a9f8853e96b6069");
 
             done();
@@ -97,3 +93,33 @@ describe(' Get blog by Id', function () {
         })
     });
 });
+
+//create blog
+// describe('10) create a blog', () => {
+//     it('it should create a blog', (done) => {
+//       chai.request(app)
+//       .get('/api/v1/blogs')
+//       .end((err, res) => {
+//             res.should.have.status(200);
+//         done();
+//       });
+//     }) 
+// it('create.', (done) => {
+//     const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWU3YmFiYTUyMWIwZjFlMTllM2NlOGMiLCJpYXQiOjE2NDI1OTEwNDZ9.RzP_BkiXT08LCwbFxKtt6O2sKAwjLaZw5WwuGWImP2U"
+//     chai.request(app).post('/api/v1/blogs')
+//       .set({ 'token': token, Accept: 'application/json' })
+//       .send({
+//         "title": "Willy shema",
+//         "subtitle": "willy@gmail.com",
+//         "content": "",
+//         "author": "this blog post is essential"
+//       })
+//       .then((res) => {
+//         const body = res.body;
+//         expect(body).to.contain.property('data');
+//         done();
+//       })
+//       .catch((err) => done(err))
+//   })
+
+// })
