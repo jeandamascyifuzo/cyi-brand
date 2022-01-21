@@ -33,28 +33,28 @@ const userController = require('../controllers/user');
  *         password: test123
  */
 
-/**
- * @swagger
- * /user/signup:
- *   post:
- *     summary: Create a new User
- *     tags: [Users]
- *     requestBody:
- *       required: true
- *       content:
- *         application/json:
- *           schema:
- *             $ref: '#/components/schemas/User'
- *     responses:
- *       200:
- *         description: The user was successfully created
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/User'
- *       500:
- *         description: Some server error
- */
+// /**
+//  * @swagger
+//  * /user/signup:
+//  *   post:
+//  *     summary: Create a new User
+//  *     tags: [Users]
+//  *     requestBody:
+//  *       required: true
+//  *       content:
+//  *         application/json:
+//  *           schema:
+//  *             $ref: '#/components/schemas/User'
+//  *     responses:
+//  *       200:
+//  *         description: The user was successfully created
+//  *         content:
+//  *           application/json:
+//  *             schema:
+//  *               $ref: '#/components/schemas/User'
+//  *       500:
+//  *         description: Some server error
+//  */
 
 router.post("/signup", userController.createUser);
 
