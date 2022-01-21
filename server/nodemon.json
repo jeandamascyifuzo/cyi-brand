@@ -1,0 +1,6 @@
+{
+    "env": {
+        "MONGO_PW": "Company1221",
+        "JWT_KEY": "secret"
+    }
+}
