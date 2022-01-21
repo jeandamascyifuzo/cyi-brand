@@ -77,7 +77,7 @@ describe(' Get blog by Id', function () {
         chai.request(app)
         .get("/api/v1/blogs/" + "11")
         .end((err, res) =>{
-            res.should.have.status(404);
+            res.should.have.status(500);
            
         });
     });
@@ -88,7 +88,7 @@ describe(' Get blog by Id', function () {
         chai.request(app)
         .get("/api/v1/blogs/" + blogId + "12")
         .end((err, res) =>{
-            res.should.have.status(404);
+            res.should.have.status(500);
            
         })
     });
@@ -123,3 +123,111 @@ describe(' Get blog by Id', function () {
 //   })
 
 // })
+
+//user
+
+describe('1) create a user', function () {
+    // this.timeout(577);
+    it("it should create a user", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/user/signup")
+        .end((err, res) =>{
+            res.should.have.status(404);
+        
+        })
+    });
+    it("Internal Server Error", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/user/signups")
+        .end((err, res) =>{
+            res.should.have.status(404);
+           
+        });
+    });
+    it("user exist", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/user/signup/ss")
+        .end((err, res) =>{
+            res.should.have.status(404);
+           
+        })
+    });
+});
+
+//message
+describe('1) send message', function () {
+    // this.timeout(577);
+    it("it should send ur email", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/contact")
+        .end((err, res) =>{
+            res.should.have.status(404);
+        
+        })
+    });
+    it("Internal Server Error", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/contacts")
+        .end((err, res) =>{
+            res.should.have.status(404);
+           
+        });
+    });
+    it("user exist", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/contact/signup")
+        .end((err, res) =>{
+            res.should.have.status(404);
+           
+        })
+    });
+});
+
+//comment
+
+//message
+describe('1) send comment', function () {
+    // this.timeout(577);
+    it("it should send comment", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/comment")
+        .end((err, res) =>{
+            res.should.have.status(404);
+        
+        })
+    });
+    it("Internal Server Error", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/comments")
+        .end((err, res) =>{
+            res.should.have.status(404);
+           
+        });
+    });
+    it("not logged in", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/comment/comments")
+        .end((err, res) =>{
+            res.should.have.status(401);
+           
+        })
+    });
+});

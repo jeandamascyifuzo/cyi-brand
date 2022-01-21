@@ -129,7 +129,7 @@ router.post('/', checkAuth, BlogsController.createBloges);
  *         description: The Blog was not found
  */
 
-router.get('/:blogId', checkAuth, BlogsController.getBlog);
+router.get('/:blogId', BlogsController.getBlog);
 
 /**
  * @swagger

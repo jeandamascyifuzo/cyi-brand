@@ -44,6 +44,7 @@ exports.createBloges = (req, res, next)=>{
           .then(doc => {
             if (doc) {
               res.status(200).json({
+                status: "success",
                   blog: doc,
                   request: { 
                       type: 'GET',
@@ -105,7 +106,10 @@ exports.createBloges = (req, res, next)=>{
         .exec()
         .then(result =>{
             res.status(200).json({
+              status: "success",
+              data: {
               message:"Blog updated"
+              }
             });
         })
         .catch(err =>{
