@@ -14,7 +14,8 @@ exports.createBloges = (req, res, next)=>{
           blog.save()
               .then(result => {
                 res.status(201).json({
-                  message: " Blog Created successfully",
+                  status: "success",
+                  message: " Blog Created",
                   CreatedBlog: {
                       title: result.title,
                       subtitle: result.subtitle,
@@ -30,6 +31,7 @@ exports.createBloges = (req, res, next)=>{
               })
               .catch(err => {
                 res.status(500).json({
+                  status: "fail",
                   error: err
                 });
               });

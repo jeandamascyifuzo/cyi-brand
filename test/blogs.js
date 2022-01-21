@@ -132,7 +132,7 @@ describe('1) create a user', function () {
         this.timeout(500);
         setTimeout(done, 300);
         chai.request(app)
-        .get("/api/v1/user/signup")
+        .post("/api/v1/user/signup")
         .end((err, res) =>{
             res.should.have.status(404);
         
@@ -142,7 +142,7 @@ describe('1) create a user', function () {
         this.timeout(500);
         setTimeout(done, 300);
         chai.request(app)
-        .get("/api/v1/user/signups")
+        .post("/api/v1/user/signups")
         .end((err, res) =>{
             res.should.have.status(404);
            
@@ -152,7 +152,7 @@ describe('1) create a user', function () {
         this.timeout(500);
         setTimeout(done, 300);
         chai.request(app)
-        .get("/api/v1/user/signup/ss")
+        .post("/api/v1/user/signup/ss")
         .end((err, res) =>{
             res.should.have.status(404);
            
@@ -167,7 +167,7 @@ describe('1) send message', function () {
         this.timeout(500);
         setTimeout(done, 300);
         chai.request(app)
-        .get("/api/v1/contact")
+        .post("/api/v1/contact")
         .end((err, res) =>{
             res.should.have.status(404);
         
@@ -177,7 +177,7 @@ describe('1) send message', function () {
         this.timeout(500);
         setTimeout(done, 300);
         chai.request(app)
-        .get("/api/v1/contacts")
+        .post("/api/v1/contacts")
         .end((err, res) =>{
             res.should.have.status(404);
            
@@ -187,7 +187,7 @@ describe('1) send message', function () {
         this.timeout(500);
         setTimeout(done, 300);
         chai.request(app)
-        .get("/api/v1/contact/signup")
+        .post("/api/v1/contact/signup")
         .end((err, res) =>{
             res.should.have.status(404);
            
@@ -210,16 +210,6 @@ describe('1) send comment', function () {
         
         })
     });
-    it("Internal Server Error", function(done) {
-        this.timeout(500);
-        setTimeout(done, 300);
-        chai.request(app)
-        .get("/api/v1/comments")
-        .end((err, res) =>{
-            res.should.have.status(404);
-           
-        });
-    });
     it("not logged in", function(done) {
         this.timeout(500);
         setTimeout(done, 300);
@@ -230,4 +220,16 @@ describe('1) send comment', function () {
            
         })
     });
+    
+    it("Internal Server Error", function(done) {
+        this.timeout(500);
+        setTimeout(done, 300);
+        chai.request(app)
+        .get("/api/v1/comments")
+        .end((err, res) =>{
+            res.should.have.status(404);
+           
+        });
+    });
+    
 });

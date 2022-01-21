@@ -60,7 +60,32 @@ router.post("/signup", userController.createUser);
 
 /**
  * @swagger
- * /user/signup:
+ * /user/login:
+ *   post:
+ *     summary: login
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/User'
+ *     responses:
+ *       200:
+ *         description: The user logged insuccessfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       500:
+ *         description: Some server error
+ */
+
+router.post("/login", userController.userLogin);
+
+/**
+ * @swagger
+ * /user/{id}::
  *   post:
  *     summary: login
  *     tags: [Users]
@@ -80,29 +105,6 @@ router.post("/signup", userController.createUser);
  *       500:
  *         description: Some server error
  */
-
-
-router.post("/login", userController.userLogin);
-
-
- /**
- * @swagger
- * /user:
- *   get:
- *     summary: Returns all users
- *     tags: [Users]
- *     responses:
- *       200:
- *         description: The list of the users
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 $ref: '#/components/schemas/User'
- */
-router.get('/all', userController.getUsers);
-
 router.delete("/:userId", checkAuth, userController.deleteUser);
 
 module.exports = router;
