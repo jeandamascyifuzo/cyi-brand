@@ -24,7 +24,7 @@ const options = {
 		},
 		servers: [
 			{
-				url: "https://cyifuzo-backend.herokuapp.com",
+				url: "https://cyifuzo-backend.herokuapp.com/api/v1",
 			},
 		],
     components: {
