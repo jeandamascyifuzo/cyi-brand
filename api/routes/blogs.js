@@ -103,7 +103,7 @@ router.get('/', BlogsController.getBlogs);
  */
 
 
-router.post('/', checkAuth, BlogsController.createBloges);
+router.post('/', BlogsController.createBloges);
 
 /**
  * @swagger
