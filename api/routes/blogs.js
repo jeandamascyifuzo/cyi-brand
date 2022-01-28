@@ -1,26 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const multer = require('multer');
+// const multer = require('multer');
 const checkAuth = require('../midleware/check-auth');
 const BlogsController = require('../controllers/blogs');
 
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, './uploads/');
-  },
-  filename: function(req, file, cb) {
-    cb(null, new Date().toISOString() + file.originalname);
-  }
-});
+// const storage = multer.diskStorage({
+//   destination: function(req, file, cb) {
+//     cb(null, './uploads/');
+//   },
+//   filename: function(req, file, cb) {
+//     cb(null, new Date().toISOString() + file.originalname);
+//   }
+// });
 
-const fileFilter = (req, file, cb) =>{
-  if(file.minetype === 'image/JPG' || 'image/jpeg' || 'image/png'){
-    cb(null, true);
-  }else{
-    cb(null, false);
-  }
-} 
-const upload = multer({storage: storage});
+// const fileFilter = (req, file, cb) =>{
+//   if(file.minetype === 'image/JPG' || 'image/jpeg' || 'image/png'){
+//     cb(null, true);
+//   }else{
+//     cb(null, false);
+//   }
+// } 
+// const upload = multer({storage: storage});
 
 /**
 * @swagger
@@ -103,8 +103,8 @@ router.get('/', BlogsController.getBlogs);
  *       500:
  *         description: Some server error
  */
-
-router.post('/',upload.single('blogImage'), BlogsController.createBloges);
+//upload.single('blogImage'),
+router.post('/', BlogsController.createBloges);
 
 /**
  * @swagger

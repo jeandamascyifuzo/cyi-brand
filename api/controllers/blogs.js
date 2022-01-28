@@ -10,7 +10,7 @@ exports.createBloges = (req, res, next)=>{
         subtitle: req.body.subtitle,
         content: req.body.content,
         author: req.body.author,
-        blogImage: req.body.blogImage
+        // blogImage: req.body.blogImage
       });
           blog.save()
               .then(result => {
@@ -22,7 +22,7 @@ exports.createBloges = (req, res, next)=>{
                       subtitle: result.subtitle,
                       content: result.content,
                       author: result.author,
-                      blogImage: result.blogImage,
+                      // blogImage: result.blogImage,
                       _id: result._id,
                       request: {
                           type: 'GET',
@@ -81,7 +81,7 @@ exports.createBloges = (req, res, next)=>{
                 title: doc.title,
                 subtitle: doc.subtitle,
                 content: doc.content,
-                blogImage: doc.blogImage,
+                // blogImage: doc.blogImage,
                 author: doc.author,
                 _id: doc._id,
                 request: {
