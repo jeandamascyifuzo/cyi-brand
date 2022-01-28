@@ -9,7 +9,8 @@ exports.createBloges = (req, res, next)=>{
         title: req.body.title,
         subtitle: req.body.subtitle,
         content: req.body.content,
-        author: req.body.author
+        author: req.body.author,
+        blogImage: req.body.blogImage
       });
           blog.save()
               .then(result => {
@@ -21,6 +22,7 @@ exports.createBloges = (req, res, next)=>{
                       subtitle: result.subtitle,
                       content: result.content,
                       author: result.author,
+                      blogImage: result.blogImage,
                       _id: result._id,
                       request: {
                           type: 'GET',
@@ -41,7 +43,7 @@ exports.createBloges = (req, res, next)=>{
     exports.getBlog = (req, res, next)=>{
         const id = req.params.blogId;
         Blog.findById(id)
-          .select('title subtitle content author _id')
+          .select('title subtitle content blogImage author _id')
           .exec()
           .then(doc => {
             if (doc) {
@@ -67,7 +69,7 @@ exports.createBloges = (req, res, next)=>{
 //get all blogs
     exports.getBlogs = (req, res, next)=>{
         Blog.find()
-        .select('title subtitle content author _id')
+        .select('title subtitle content blogImage author _id')
         .exec()
         .then(docs => {
           const response = {
@@ -79,6 +81,7 @@ exports.createBloges = (req, res, next)=>{
                 title: doc.title,
                 subtitle: doc.subtitle,
                 content: doc.content,
+                blogImage: doc.blogImage,
                 author: doc.author,
                 _id: doc._id,
                 request: {
