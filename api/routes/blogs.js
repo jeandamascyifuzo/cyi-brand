@@ -163,7 +163,7 @@ router.get('/:blogId', checkAuth, BlogsController.getBlog);
  *        description: Some error happened
  */
 
-router.patch('/:blogId', checkAuth, BlogsController.updateBlog);
+router.patch('/:blogId', BlogsController.updateBlog);
 
 
 /**
