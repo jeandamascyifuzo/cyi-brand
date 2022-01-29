@@ -17,11 +17,10 @@ const blogSchema = mongoose.Schema({
         },
     author:{
         type: String
-           }
-    // blogImage:{
-    //     type: String,
-    //     required: true
-    // }
+           },
+    blogImage:{
+        type: String,
+    }
 });
 
 module.exports = mongoose.model('Blog', blogSchema);
