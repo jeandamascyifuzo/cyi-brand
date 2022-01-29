@@ -49,11 +49,13 @@ exports.createBloges = (req, res, next)=>{
             if (doc) {
               res.status(200).json({
                 status: "success",
+                data:{
                   blog: doc,
                   request: { 
                       type: 'GET',
                       url: 'http://localhost:5000/api/v1/blogs'
                   }
+                }
               });
             } else {
               res
@@ -113,12 +115,14 @@ exports.createBloges = (req, res, next)=>{
             res.status(200).json({
               status: "success",
               data: {
-              message:"Blog updated"
-              }
+              message:"Blog updated",
+              },
+              
             });
         })
         .catch(err =>{
            res.status(500).json({
+             status: "fail",
                error: err
            });
         });
@@ -131,11 +135,13 @@ exports.createBloges = (req, res, next)=>{
         .exec()
         .then(result =>{
             res.status(200).json({
+              status: "success",
                 message:"Blog deleted"
             });
         })
         .catch(err => {
             res.status(500).json({
+              status: "fail",
                 error: err
             });
         });
